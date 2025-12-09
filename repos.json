@@ -1,0 +1,19 @@
+{
+  "repositories": [
+    {
+      "owner": "SlicerMorph",
+      "name": "SlicerMorph",
+      "display_name": "SlicerMorph"
+    },
+    {
+      "owner": "SlicerMorph",
+      "name": "Tutorials",
+      "display_name": "Tutorials"
+    },
+    {
+      "owner": "MorphoCloud",
+      "name": "MorphoCloudInstances",
+      "display_name": "MCI"
+    }
+  ]
+}

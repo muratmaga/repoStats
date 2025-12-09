@@ -1,0 +1,61 @@
+name: Collect Traffic Stats
+
+on:
+  schedule:
+    # Run every Sunday at midnight UTC (weekly)
+    - cron: '0 0 * * 0'
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  collect-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Collect traffic statistics
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Read repositories from config file
+          REPOS=$(jq -r '.repositories[] | "\(.owner)/\(.name):\(.display_name)"' repos.json)
+          
+          echo "Collecting traffic data for repositories..."
+          
+          # Loop through each repository
+          while IFS=: read -r repo display_name; do
+            echo "Fetching stats for $repo..."
+            
+            # Create filename from display name (lowercase)
+            filename="${display_name}.json"
+            
+            # Fetch traffic data and append to JSON file
+            gh api \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "/repos/${repo}/traffic/views" >> "$filename"
+            
+            echo "✓ Data appended to $filename"
+          done <<< "$REPOS"
+          
+          echo "All traffic data collected successfully!"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Add all JSON files
+          git add *.json
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update traffic stats - $(date +'%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "✓ Changes committed and pushed"
+          fi
