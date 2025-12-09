@@ -11,9 +11,44 @@
       "display_name": "Tutorials"
     },
     {
+      "owner": "SlicerMorph",
+      "name": "SlicerDenseCorrespondenceAnalysis",
+      "display_name": "DeCA"
+    },
+    {
+      "owner": "SlicerMorph",
+      "name": "SlicerPhotogrammetry",
+      "display_name": "Photogrammetry"
+    },
+    {
+      "owner": "SlicerMorph",
+      "name": "SlicerMEMOs",
+      "display_name": "MEMOs"
+    },
+	{
+      "owner": "SlicerMorph",
+      "name": "SlicerANTsPy",
+      "display_name": "ANTsPy"
+    },
+    {
+      "owner": "SlicerMorph",
+      "name": "SlicerMorph101",
+      "display_name": "101_Course"
+    },
+    {
+      "owner": "SlicerMorph",
+      "name": "SlicerMorph102",
+      "display_name": "102_Course"
+    },
+    {
       "owner": "MorphoCloud",
       "name": "MorphoCloudInstances",
       "display_name": "MCI"
+    },
+    {
+      "owner": "MorphoCloud",
+      "name": "SlicerMorphoDepot",
+      "display_name": "MorphoDepot"
     }
   ]
 }
