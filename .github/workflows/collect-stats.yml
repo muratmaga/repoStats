@@ -58,24 +58,3 @@ jobs:
             git push
             echo "✓ Changes committed and pushed"
           fi
-
-      - name: Notify on failure
-        if: failure()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{secrets.NOTIFICATION_EMAIL}}
-          password: ${{secrets.NOTIFICATION_EMAIL_PASSWORD}}
-          subject: '⚠️ RepoStats Data Collection Failed'
-          to: ${{secrets.NOTIFICATION_EMAIL}}
-          from: GitHub Actions <noreply@github.com>
-          body: |
-            The scheduled traffic stats collection failed.
-            
-            Workflow: ${{github.workflow}}
-            Repository: ${{github.repository}}
-            Run: ${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}
-            
-            Please check the workflow logs for details.
