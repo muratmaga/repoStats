@@ -18,7 +18,7 @@ jobs:
 
       - name: Collect traffic statistics
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_STATS_TOKEN }}
         run: |
           # Read repositories from config file
           REPOS=$(jq -r '.repositories[] | "\(.owner)/\(.name):\(.display_name)"' repos.json)
