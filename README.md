@@ -10,6 +10,26 @@ Traffic statistics are collected weekly for the following repositories:
 - **SlicerMorph/Tutorials**
 - **MorphoCloud/MorphoCloudInstances**
 
+## Slicer Extension Download Statistics
+
+Weekly collection of download statistics for Slicer extensions from the [3D Slicer Extensions Index](https://slicer-packages.kitware.com).
+
+### Download Statistics by Release
+
+| Extension Name | Total Downloads | 4.11.20200930 | 4.11.20210226 | post-4.11.20210226 | 5.0.2 | 5.0.3 | post-5.0.3 | 5.2.1 | 5.2.2 | post-5.2.2 | 5.4.0 | post-5.4.0 | 5.6.0 | 5.6.1 | 5.6.2 | post-5.6.2 | 5.8.0 | 5.8.1 | post-5.8.1 | 5.10.0 | post-5.10.0 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| SlicerMorph | 41,329 | 297 | 2,747 | 5,981 | 973 | 1,813 | 1,274 | 1,230 | 2,728 | 1,278 | 2,044 | 380 | 432 | 2,479 | 5,400 | 3,454 | 1,145 | 5,469 | 1,295 | 831 | 79 |
+| DenseCorrespondenceAnalysis | 940 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 422 | 406 | 103 | 9 |
+| Photogrammetry | 459 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 9 | 63 | 341 | 45 | 1 |
+| MEMOS | 5,924 | 0 | 0 | 0 | 0 | 0 | 0 | 77 | 431 | 651 | 310 | 187 | 78 | 278 | 490 | 2,591 | 76 | 328 | 377 | 47 | 3 |
+| SlicerANTsPy | 697 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 435 | 150 | 97 | 15 |
+| MorphoDepot | 1,431 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 119 | 76 | 439 | 665 | 115 | 17 |
+| ScriptEditor | 2,546 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 402 | 578 | 210 | 932 | 297 | 110 | 17 |
+
+
+*Last updated: Automatically via GitHub Actions (weekly)*
+
+
 ## How It Works
 
 ### Data Collection

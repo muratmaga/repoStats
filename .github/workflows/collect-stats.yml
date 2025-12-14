@@ -16,6 +16,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
       - name: Collect traffic statistics
         env:
           GH_TOKEN: ${{ secrets.REPO_STATS_TOKEN }}
@@ -42,19 +51,25 @@ jobs:
           
           echo "All traffic data collected successfully!"
 
+      - name: Collect Slicer extension download statistics
+        run: |
+          echo "Collecting Slicer extension download statistics..."
+          python collect_extension_stats.py
+          echo "✓ Extension statistics collected"
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Add all JSON files
-          git add *.json
+          # Add JSON files and extension stats
+          git add *.json extension_stats.csv README.md
           
           # Check if there are changes to commit
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update traffic stats - $(date +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "Update stats - $(date +'%Y-%m-%d %H:%M UTC')"
             git push
             echo "✓ Changes committed and pushed"
           fi

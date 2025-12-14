@@ -49,6 +49,11 @@
       "owner": "MorphoCloud",
       "name": "SlicerMorphoDepot",
       "display_name": "MorphoDepot"
+    },
+    {
+      "owner": "SlicerMorph",
+      "name": "SlicerScriptEditor",
+      "display_name": "ScriptEditor"
     }
   ]
 }
