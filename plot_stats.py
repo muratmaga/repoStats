@@ -57,11 +57,21 @@ def create_views_plot(repo_data, repo_name, output_path):
     # Create plot with larger size
     fig, ax = plt.subplots(figsize=(14, 8))
     
+    # Calculate averages
+    avg_count = df['count'].mean()
+    avg_uniques = df['uniques'].mean()
+
     # Plot views and uniques with thicker lines and larger markers
     ax.plot(df['date'], df['count'], marker='o', linewidth=2.5, 
             markersize=6, label='Views', color='#2E86AB')
     ax.plot(df['date'], df['uniques'], marker='s', linewidth=2.5, 
             markersize=6, label='Unique Visitors', color='#A23B72')
+
+    # Add horizontal average lines
+    ax.axhline(y=avg_count, color='#2E86AB', linestyle='--', linewidth=1.5,
+               label=f'Avg Views ({avg_count:.1f})')
+    ax.axhline(y=avg_uniques, color='#A23B72', linestyle='--', linewidth=1.5,
+               label=f'Avg Unique Visitors ({avg_uniques:.1f})')
     
     # Format x-axis with larger font
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
